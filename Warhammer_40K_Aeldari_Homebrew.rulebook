@@ -1,0 +1,336 @@
+{
+  "name": "Aeldari Homebrew",
+  "revision": "0.0.1",
+  "game": "Warhammer 40K",
+  "genre": "sci-fi",
+  "publisher": "",
+  "url": "",
+  "notes": "",
+  "wip": true,
+  "dependencies": [
+    {
+      "slug": "N73KP7",
+      "name": "Aeldari/Drukhari common",
+      "game": "Warhammer 40k",
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari-Drukhari-Common.rulebook"
+    },
+    {
+      "slug": "WTB6Y7",
+      "name": "Aeldari",
+      "game": "Warhammer 40k",
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.rulebook"
+    }
+  ],
+  "rulebook": {
+    "assetTaxonomy": {
+      "Unit": {
+        "stats": {
+          "Models": {
+            "value": 5
+          }
+        }
+      }
+    },
+    "assetCatalog": {
+      "Ability§Healing Grace": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "When an attack is allocated to the unit, you can reduce the damage by one. You can only do this once per turn."
+      },
+      "Ability§Lost Soul (Aura)": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "When a friendly AELDARI unit within 6\" of this model dies, roll one D6: on a 4+ you bring back one model in that unit at the end of the phase with 3 wounds (or full if the model has less than 3 wounds)."
+      },
+      "Ability§Rejuvenating Form": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "stats": {
+          "abilityName": {
+            "value": "Rejuvenating Form"
+          }
+        },
+        "text": "Each time an attack is allocated to this model, reduce the damage by 1."
+      },
+      "Ability§Rose of Isha (Aura)": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "text": "While a friendly Aeldari unit is within 6\" of this model, in your Command phase those units regains 1 lost wounds."
+      },
+      "Ability§Strand of Isha": {
+        "keywords": {
+          "Keywords": [
+            "Other"
+          ]
+        },
+        "stats": {
+          "abilityName": {
+            "value": "Strand of Isha"
+          }
+        },
+        "text": "At the start of your Command Phase you can target a model within 6\" of the Health Guardian Exarch, that model heals D3 wounds."
+      },
+      "Character§Avatar of Isha": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Fertile Shot",
+            "Melee Weapon§Rose Spear",
+            "Ability§Rejuvenating Form",
+            "Ability§Rose of Isha (Aura)",
+            "Ability§Lost Soul (Aura)",
+            {
+              "item": "Ability§Invulnerable",
+              "stats": {
+                "x": {
+                  "value": "4"
+                }
+              }
+            },
+            "Ability§Lone Operative"
+          ]
+        },
+        "keywords": {
+          "Category": [
+            "Epic Hero"
+          ],
+          "Keywords": [
+            "Avatar of Isha",
+            "Character",
+            "Daemon",
+            "Epic Hero",
+            "Infantry"
+          ],
+          "Faction": [
+            "Aeldari"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 5
+          },
+          "Points": {
+            "value": 180
+          },
+          "Sv": {
+            "value": 2
+          },
+          "T": {
+            "value": 8
+          },
+          "W": {
+            "value": 8
+          }
+        }
+      },
+      "Melee Weapon§Health Guard —Close combat weapon": {},
+      "Melee Weapon§Health Guard Exarch —Aeldari power sword": {},
+      "Melee Weapon§Rose Spear": {
+        "assets": {
+          "traits": [
+            "Ability§Lethal Hits"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "AP": {
+            "value": 2
+          },
+          "D": {
+            "value": 2
+          },
+          "S": {
+            "value": 3
+          },
+          "WS": {
+            "value": 4
+          }
+        }
+      },
+      "Model§Health Guard": {
+        "assets": {
+          "traits": [
+            "Ranged Weapon§Rose Shot",
+            "Melee Weapon§Health Guard —Close combat weapon"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 4
+          }
+        }
+      },
+      "Model§Health Guard Exarch": {
+        "assets": {
+          "traits": [
+            "Ability§Strand of Isha",
+            "Ranged Weapon§Rose Shot",
+            "Melee Weapon§Health Guard Exarch —Aeldari power sword"
+          ]
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 10
+          },
+          "OC": {
+            "value": 1
+          },
+          "Sv": {
+            "value": 4
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 6
+          }
+        }
+      },
+      "Ranged Weapon§Fertile Shot": {
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "AP": {
+            "value": 3
+          },
+          "BS": {
+            "value": 4
+          },
+          "D": {
+            "value": 3
+          },
+          "Range": {
+            "value": 18
+          },
+          "S": {
+            "value": 5
+          }
+        }
+      },
+      "Ranged Weapon§Rose Shot": {},
+      "Roster§Roster": {
+        "stats": {
+          "Faction": {
+            "value": "Aeldari"
+          },
+          "Faction Group": {
+            "value": "Xenos"
+          }
+        }
+      },
+      "Unit§Health Guard": {
+        "allowed": {
+          "items": [
+            "Model§Health Guard"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Ability§Strands of Fate",
+            "Ability§Healing Grace",
+            "Model§Health Guard Exarch",
+            "Model§Health Guard"
+          ]
+        },
+        "keywords": {
+          "Category": [
+            "Infantry"
+          ],
+          "Keywords": [
+            "Health Guard",
+            "Infantry"
+          ],
+          "Faction": [
+            "Aeldari"
+          ]
+        },
+        "removed": {
+          "stats": {}
+        },
+        "stats": {
+          "Ld": {
+            "value": 6
+          },
+          "M": {
+            "value": 10
+          },
+          "model1stTally": {
+            "value": 5
+          },
+          "model2ndCost": {
+            "value": 200
+          },
+          "model2ndTally": {
+            "value": 10
+          },
+          "modelKey": {
+            "value": "Model§Health Guard"
+          },
+          "Models": {
+            "increment": {
+              "value": 1
+            },
+            "max": 10,
+            "min": 5,
+            "visibility": "normal"
+          },
+          "OC": {
+            "value": 1
+          },
+          "Points": {
+            "value": 100
+          },
+          "Sv": {
+            "value": 3
+          },
+          "T": {
+            "value": 3
+          },
+          "W": {
+            "value": 4
+          }
+        }
+      }
+    },
+    "gameModes": {},
+    "theme": {}
+  }
+}

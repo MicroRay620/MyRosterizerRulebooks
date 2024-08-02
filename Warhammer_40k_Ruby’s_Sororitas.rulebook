@@ -1,0 +1,985 @@
+{
+  "name": "Ruby’s Sororitas",
+  "revision": "0.0.1",
+  "game": "Warhammer 40k",
+  "genre": "sci-fi",
+  "publisher": "",
+  "url": "https://raw.githubusercontent.com/MicroRay620/40k-rulebooks/main/Warhammer_40k_Ruby’s_Sororitas.rulebook",
+  "notes": "",
+  "wip": true,
+  "dependencies": [
+    {
+      "slug": "T2EZ2E",
+      "name": "Adepta Sororitas",
+      "game": "Warhammer 40k",
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.rulebook"
+    },
+    {
+      "slug": "7RNJRN",
+      "name": "Adepta Sororitas (Codex Showcase)",
+      "game": "Warhammer 40k",
+      "source": ""
+    },
+    {
+      "slug": "8HCQBM",
+      "name": "Imperial Knights",
+      "game": "Warhammer 40k",
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.rulebook"
+    },
+    {
+      "slug": "P4KNM4",
+      "name": "40k10e",
+      "game": "Warhammer 40k",
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
+    },
+    {
+      "slug": "WTB6Y7",
+      "name": "Aeldari",
+      "game": "Warhammer 40k",
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.rulebook"
+    },
+    {
+      "slug": "ZM5JB3",
+      "name": "Adepta Sororitas",
+      "game": "Warhammer 40k",
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/drafts/Adepta_Sororitas.rulebook"
+    },
+    {
+      "slug": "43F4R8",
+      "name": "Aeldari Homebrew",
+      "game": "Warhammer 40K",
+      "source": ""
+    }
+  ],
+  "rulebook": {
+    "assetTaxonomy": {
+      "Stratagem": {},
+      "Stratagems": {},
+      "Unit": {
+        "rules": {
+          "canonessPalatineLeaders": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Character§Palatine"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Character§Canoness"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    [
+                      "Category",
+                      "Keywords"
+                    ]
+                  ]
+                ],
+                "value": "infantry"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Aeldari"
+              },
+              {
+                "actionable": true,
+                "contains": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Wraith Construct"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "copyPointsIfAeldari": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aeldari Points",
+                    "value"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Points",
+                  "value"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "keywords",
+                    "Faction"
+                  ]
+                ],
+                "value": "Aeldari"
+              },
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{parent}",
+                    "classIdentity"
+                  ]
+                ],
+                "value": "Unit"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 52
+          }
+        },
+        "stats": {
+          "Aeldari Points": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          }
+        }
+      }
+    },
+    "assetCatalog": {
+      "Character§Canoness": {
+        "removed": {
+          "stats": {
+            "Special Options 2": {}
+          }
+        },
+        "rules": {
+          "aeldariBodyguards": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Ability§Leader",
+                    "text"
+                  ]
+                ],
+                "value": "This model can also lead AELDARI INFANTRY units (excluding WRAITH CONSTRUCT units)."
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "contains": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Accepta Fides"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "stats": {
+          "Melee Options": {
+            "ranks": {
+              "Chainsword": {
+                "order": 0,
+                "tracking": {},
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Canoness—Chainsword"
+                  }
+                ]
+              },
+              "Power Weapon": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Canoness—Power weapon"
+                  }
+                ]
+              },
+              "Blessed Blade": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Melee Weapon§Canoness—Blessed blade"
+                  }
+                ]
+              }
+            }
+          },
+          "Special Options 1": {
+            "ranks": {
+              "Divine Brazier": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Wargear§Divine Brazier"
+                  }
+                ]
+              },
+              "Holy Shield": {
+                "order": 4,
+                "traits": [
+                  {
+                    "trait": "Wargear§Holy Shield"
+                  }
+                ]
+              },
+              "Sister Power": {
+                "order": 5,
+                "traits": [
+                  {
+                    "trait": "Wargear§Holy Shield"
+                  },
+                  {
+                    "trait": "Wargear§Sister Power"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "Character§Palatine": {
+        "rules": {
+          "aeldariBodyguards": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "item",
+                    "Ability§Leader",
+                    "text"
+                  ]
+                ],
+                "value": "Palatine can also lead one AELDARI INFANTRY unit (excluding WRAITH CONSTRUCT units)/"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Accepta Fides"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Detachment§Accepta Fides": {
+        "rules": {
+          "allowAeldari": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "any"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Order of Battle",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": "Aeldari"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "not"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Order of Battle",
+                    "constraints",
+                    "not"
+                  ]
+                ],
+                "value": "Aeldari"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "constraints",
+                    "not"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Order of Battle",
+                    "constraints",
+                    "not"
+                  ]
+                ],
+                "value": "Psyker"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "assignStratagems": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Saintly Intervention"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Returning Vengance"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Hatred of Fallen"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Strat4"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Strat5"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Stratagems§Stratagems",
+                    "traits"
+                  ]
+                ],
+                "value": "Stratagem§Strat6"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "## Allied Xenos\nYou can have non-PSYKER units with AELDARI faction keyword as allied units. The number of Aeldari units you have is based on the point value you are playing with. These Aeldari units can’t be your Warlord.\n\n|Army Point Total|Aeldari Point Max|\n|-|-|\n|1000 Points|125 Points|\n|2000 Points|250 Points|\n|3000 Points|375 Points|\n\n## Miraculous Savior\nOnce per turn, you can target your one of your Aeldari units with Miracle Dice. Miracle Dice are treated as Fate Dice for the purposes of Aeldari unit abilities. You will also gain a Miracle Die when an Aeldari unit is destroyed.\n\n## Saint’s Wrath\nAt the start of the first Battle round, choose one of your opponent’s CHARACTER units. Any attack against that unit have their Strength, Damage, and AP characteristics increased by 1. Melee attacks against that unit also have their Attack characteristic increased by 2. You also can re-roll Hit rolls against that unit.\nYour Warlord’s melee weapons also gain the [ANTI-CHARACTER 2+] ability."
+      },
+      "Enhancement§Dangerous Order": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 30
+          }
+        },
+        "text": "ADEPTA SORORITAS models only. During your Command phase, you roll one D6: on a 2+, return one model in that unit or you can regain 1 lost wound."
+      },
+      "Enhancement§Fated Hero": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "ADEPTA SORORITAS models only. When you destroy an enemy unit, roll one D6. On a 3+ you gain an extra miracle die. If the model was your Saint’s Wrath target, you will automatically get a Miracle Die instead."
+      },
+      "Enhancement§Organized Order": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 20
+          }
+        },
+        "text": "ADEPTA SORORITAS models only. In your Shooting or the Fight phase, while the bearer is leading a unit, you can improve the Strength characteristic of one of the weapons in the unit by 1. This enhancement can only be used once per phase."
+      },
+      "Enhancement§Sacred Task": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides"
+          ]
+        },
+        "stats": {
+          "Points": {
+            "value": 10
+          }
+        },
+        "text": "ADEPTA SORORITAS models only. If this model’s unit kill your Saint’s Wrath target, you can pick a new target for your Saint’s Wrath."
+      },
+      "Melee Weapon§Canoness—Chainsword": {
+        "keywords": {
+          "Keywords": [
+            "Precision"
+          ]
+        },
+        "stats": {
+          "D": {
+            "value": 2
+          }
+        }
+      },
+      "Roster§Roster": {
+        "removed": {
+          "rules": {
+            "Maximum 1000 points of Drukhari in a Strike Force game.": {},
+            "Maximum 1500 points of Drukhari in an Onslaught game.": {},
+            "Maximum 500 points of Drukhari in an Incursion game.": {}
+          }
+        },
+        "rules": {
+          "aeldariPresent": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aeldari Points",
+                    "visibility"
+                  ]
+                ],
+                "value": "normal"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aeldari Points",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "antiCharacterWarlord": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Anti-Character 4+"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classIdentity",
+                    "Weapons",
+                    "assets",
+                    "classification",
+                    "Melee Weapon",
+                    "keywords",
+                    "Keywords"
+                  ]
+                ],
+                "value": "Anti-Character 2+"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Detachment",
+                    "value"
+                  ]
+                ],
+                "value": "Accepta Fides"
+              },
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Warlord",
+                    "value"
+                  ]
+                ],
+                "value": "✓"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "eighthPointsAeldari": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Aeldari Points",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T/O",
+                  "value": 4
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Points",
+                    "processed",
+                    "numeric",
+                    "current"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noDrukhari": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    [
+                      "Allied faction 1",
+                      "Allied faction 2"
+                    ],
+                    "ranks"
+                  ]
+                ],
+                "value": "Drukhari"
+              },
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Detachment",
+                    "ranks"
+                  ]
+                ],
+                "value": "Battle Host"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 0
+          },
+          "warlordMelee": {
+            "evals": []
+          }
+        },
+        "stats": {
+          "Aeldari Points": {
+            "group": "Cost",
+            "groupOrder": 0,
+            "statOrder": 2,
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "Detachment": {
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "The Blood of Martyrs": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Detachment§The Blood of Martyrs"
+                  }
+                ]
+              },
+              "Accepta Fides": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Detachment§Accepta Fides"
+                  }
+                ]
+              }
+            },
+            "value": "Accepta Fides"
+          }
+        }
+      },
+      "Stratagem§Blasting On Back": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides",
+            "Adepta Sororitas"
+          ]
+        },
+        "stats": {
+          "Command Cost": {}
+        },
+        "text": "WHEN: Your Movement phase, just after a ADEPTA SORORITAS or an AELDARI unit from your army makes a Fall Back move. \n\nTARGET: That ADEPTA SORORITAS or AELDARI unit\n\nEFFECT: Your unit is eligible to shoot and declare a charge this turn even though it Fell Back."
+      },
+      "Stratagem§Divine Intervention": {
+        "removed": {
+          "text": ""
+        },
+        "text": "WHEN: Any Phase\n\nTARGET: One ADEPTA SORORITAS CHARACTER or AELDARI unit that was just destroyed. You can use this Stratagem even though the unit was destroyed.\n\nEFFECT: Discard 1-3 Miracle dice. At the end of the phase, set the last destroyed model from your unit back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models. That model is set back up with a number of wounds remaining equal to the number of Miracle dice you discarded. \n\nRESTRICTIONS: You cannot select the same CHARACTER or AELDARI unit as the target of this Stratagem more than once per battle. You can only select SAINT CELESTINE if you failed Miraculous Intervention."
+      },
+      "Stratagem§Hatred of Fallen": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides",
+            "Adepta Sororitas",
+            "Drukhari",
+            "Slaanesh"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Yours"
+          ],
+          "Phase": [
+            "Fight",
+            "Shooting"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "WHEN: Your Shooting or The Fight phase\n\nTARGET: When you select an ADEPTA SORORITAS or AELDARI unit to Shoot or Fight.\n\nEFFECT: That unit’s weapon gain the Devastating Wounds keyword. If the selected unit has the DRUKHARI faction or SLAANESH keyword, the unit’s weapon will also gain ANTI-DRUKHARI 4+ and ANTI-SLAANESH 4+ keyword."
+      },
+      "Stratagem§Returning Vengance": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides",
+            "Adepta Sororitas",
+            "Drukhari",
+            "SLAANESH"
+          ],
+          "Phase": [
+            "Fight"
+          ],
+          "Category": [
+            "Battle Tactic"
+          ],
+          "Turn": [
+            "Opponent’s"
+          ]
+        },
+        "stats": {
+          "Command Cost": {
+            "value": 2
+          }
+        },
+        "text": "WHEN: Fight phase, just after an enemy unit has selected its targets.\n\nTARGET: One ADEPTA SORORITAS or AELDARI unit from your army that was selected as the target of one or more of the attacking unit’s attacks.\n\nEFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking model’s unit has finished making attacks, and is then removed from play. If the target has either the DRUKHARI faction keyword or the SLAANESH keyword, you can use this Stratagem even if the model has already attacked."
+      },
+      "Stratagem§Saintly Intervention": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides",
+            "Adepta Sororitas"
+          ],
+          "Phase": [
+            "Any"
+          ],
+          "Category": [
+            "Epic Deed"
+          ]
+        },
+        "text": "WHEN: Any Phase\n\nTARGET: One ADEPTA SORORITAS CHARACTER or AELDARI unit that was just destroyed. You can use this Stratagem even though the unit was destroyed.\n\nEFFECT: Discard 1-3 Miracle dice. At the end of the phase, set the last destroyed model from your unit back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models. That model is set back up with a number of wounds remaining equal to the number of Miracle dice you discarded. \n\nRESTRICTIONS: You cannot select the same CHARACTER or AELDARI unit as the target of this Stratagem more than once per battle. Models that have been returned to the battlefield through a different ability cannot be the target of this stratagem."
+      },
+      "Stratagem§Strat5": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides",
+            "Adepta Sororitas"
+          ]
+        }
+      },
+      "Stratagem§Strat6": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides",
+            "Adepta Sororitas"
+          ]
+        }
+      },
+      "Unit§Cronos": {
+        "inheritance": "removed"
+      },
+      "Unit§Kabalite Warriors": {
+        "inheritance": "removed"
+      },
+      "Unit§Ravager": {
+        "inheritance": "removed"
+      },
+      "Unit§Wracks": {
+        "inheritance": "removed"
+      },
+      "Unit§Wraithseer": {
+        "inheritance": "removed"
+      },
+      "Unit§Wyches": {
+        "inheritance": "removed"
+      },
+      "Wargear§Divine Brazier": {
+        "assets": {
+          "included": [],
+          "traits": []
+        },
+        "text": "Each time Canoness ends a Charge move, you can select one enemy unit within Engagement Range of this unit and roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers D3+2 mortal wounds."
+      },
+      "Wargear§Holy Shield": {
+        "allowed": {
+          "items": []
+        },
+        "assets": {
+          "included": [],
+          "traits": []
+        },
+        "constraints": {
+          "any": []
+        },
+        "text": "When the bearer’s unit takes damage, you can discard a Miracle Die to make the change the damage characteristic to 0. You can only do this once per turn"
+      },
+      "Wargear§Sister Power": {
+        "allowed": {
+          "items": [
+            "Ranged Weapon§Canoness—Condemnor boltgun"
+          ]
+        },
+        "assets": {
+          "traits": [
+            "Melee Weapon§Canoness—Power weapon"
+          ]
+        },
+        "text": "The Strength characteristic of weapons in bearer’s unit are increased by 1. If the unit is below half Strength, the damage characteristic of the weapons are increased by 2 instead."
+      },
+      "Weapon§Saint Celestine—The Ardent Blade": {
+        "assets": {
+          "traits": [
+            {
+              "item": "Ability§Anti-",
+              "stats": {
+                "abilityName": {
+                  "value": "Anti-Drukhari"
+                }
+              }
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": []
+        }
+      }
+    },
+    "gameModes": {},
+    "theme": {}
+  }
+}
