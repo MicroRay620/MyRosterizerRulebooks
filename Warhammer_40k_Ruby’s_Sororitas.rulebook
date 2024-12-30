@@ -1,6 +1,6 @@
 {
   "name": "Ruby’s Sororitas",
-  "revision": "0.0.1",
+  "revision": "0.0.2",
   "game": "Warhammer 40k",
   "genre": "sci-fi",
   "publisher": "",
@@ -9,28 +9,10 @@
   "wip": true,
   "dependencies": [
     {
-      "slug": "T2EZ2E",
+      "slug": "Q5R5D9",
       "name": "Adepta Sororitas",
       "game": "Warhammer 40k",
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Adepta_Sororitas.rulebook"
-    },
-    {
-      "slug": "7RNJRN",
-      "name": "Adepta Sororitas (Codex Showcase)",
-      "game": "Warhammer 40k",
-      "source": ""
-    },
-    {
-      "slug": "8HCQBM",
-      "name": "Imperial Knights",
-      "game": "Warhammer 40k",
-      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Imperial_Knights.rulebook"
-    },
-    {
-      "slug": "P4KNM4",
-      "name": "40k10e",
-      "game": "Warhammer 40k",
-      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
     },
     {
       "slug": "WTB6Y7",
@@ -39,21 +21,21 @@
       "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Aeldari.rulebook"
     },
     {
-      "slug": "ZM5JB3",
-      "name": "Adepta Sororitas",
+      "slug": "P4KNM4",
+      "name": "40k10e",
       "game": "Warhammer 40k",
-      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/drafts/Adepta_Sororitas.rulebook"
-    },
-    {
-      "slug": "43F4R8",
-      "name": "Aeldari Homebrew",
-      "game": "Warhammer 40K",
-      "source": ""
+      "source": "https://raw.githubusercontent.com/RosterizerTestData/Warhammer40k10e/main/Warhammer_40k_10e.rulebook"
     }
   ],
   "rulebook": {
     "assetTaxonomy": {
-      "Stratagem": {},
+      "Stratagem": {
+        "keywords": {
+          "Keywords": [
+            "Accepta Fides"
+          ]
+        }
+      },
       "Stratagems": {},
       "Unit": {
         "rules": {
@@ -521,7 +503,7 @@
             "value": 30
           }
         },
-        "text": "ADEPTA SORORITAS models only. During your Command phase, you roll one D6: on a 2+, return one model in that unit or you can regain 1 lost wound."
+        "text": "ADEPTA SORORITAS models only. During your Command phase, you roll one D6: on a 2+, return one non-CHARACTER model in that unit or you can regain 1 lost wound."
       },
       "Enhancement§Fated Hero": {
         "keywords": {
@@ -534,7 +516,7 @@
             "value": 20
           }
         },
-        "text": "ADEPTA SORORITAS models only. When you destroy an enemy unit, roll one D6. On a 3+ you gain an extra miracle die. If the model was your Saint’s Wrath target, you will automatically get a Miracle Die instead."
+        "text": "ADEPTA SORORITAS models only. Once per battle, when the bearer dies you may roll one D6: on a 2+, set the bearer model back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with its full wounds remaining."
       },
       "Enhancement§Organized Order": {
         "keywords": {
@@ -560,7 +542,7 @@
             "value": 10
           }
         },
-        "text": "ADEPTA SORORITAS models only. If this model’s unit kill your Saint’s Wrath target, you can pick a new target for your Saint’s Wrath."
+        "text": "ADEPTA SORORITAS models only. Once per turn when you do an Act of Faith on an ADEPTA SORORITAS or AELDARI unit and the chosen unit is within 12” of the bearer, you can can treat the Miracle Die roll for the Act of Faith as an unmodified 6."
       },
       "Melee Weapon§Canoness—Chainsword": {
         "keywords": {
